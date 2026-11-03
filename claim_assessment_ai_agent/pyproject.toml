@@ -1,0 +1,28 @@
+[project]
+name = "claim-assessment-agent"
+version = "0.1.0"
+description = "Auditable insurance claim assessment with FastAPI and LangGraph"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn[standard]>=0.34,<1",
+  "langgraph>=1,<2", "langchain-core>=1,<2", "langchain-google-genai>=4,<5",
+  "pydantic>=2.10,<3", "pydantic-settings>=2.7,<3",
+  "sqlalchemy[asyncio]>=2,<3", "aiosqlite>=0.20,<1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=1,<2", "httpx>=0.28,<1", "ruff>=0.11,<1"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+extend-exclude = [".uv-cache", ".uv-cache-clean", ".venv", "artifacts", "runtime"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

@@ -1,0 +1,131 @@
+{
+  "id": "more_info_003",
+  "title": "Missing medical report",
+  "claim": {
+    "policy_id": "POL-DEMO",
+    "member_id": "DEMO-MEMBER",
+    "claim_type": "outpatient",
+    "amount": "1000000",
+    "currency": "VND",
+    "diagnosis": "pharyngitis",
+    "procedures": [
+      "consultation",
+      "throat_test"
+    ],
+    "treatment_start": "2026-06-10",
+    "treatment_end": "2026-06-10",
+    "document_ids": [
+      "more_info_003-claim_form",
+      "more_info_003-invoice"
+    ]
+  },
+  "policy": {
+    "id": "POL-DEMO",
+    "version": "v1",
+    "status": "active",
+    "coverage_start": "2026-01-01",
+    "coverage_end": "2026-12-31",
+    "lapse_date": null,
+    "members": [
+      "DEMO-MEMBER"
+    ],
+    "waiting_days": 30,
+    "usage_year": 2026,
+    "benefits": {
+      "outpatient": {
+        "annual_limit": "5000000",
+        "used_payout": "1000000",
+        "copay_rate": "0.20",
+        "required_documents": [
+          "claim_form",
+          "invoice",
+          "medical_report"
+        ]
+      }
+    },
+    "excluded_procedures": [
+      "cosmetic_surgery"
+    ],
+    "clauses": {
+      "coverage": {
+        "id": "POL-DEMO:v1:COV-01",
+        "title": "Coverage period",
+        "text": "Treatment must fall entirely between 2026-01-01 and 2026-12-31 inclusive and before any effective lapse date."
+      },
+      "member": {
+        "id": "POL-DEMO:v1:MEM-01",
+        "title": "Insured members",
+        "text": "Only member DEMO-MEMBER is insured."
+      },
+      "benefit": {
+        "id": "POL-DEMO:v1:BEN-01",
+        "title": "Outpatient benefit",
+        "text": "Outpatient treatment is covered subject to eligibility, documentation, medical necessity and exclusions."
+      },
+      "documents": {
+        "id": "POL-DEMO:v1:DOC-01",
+        "title": "Required evidence",
+        "text": "A complete claim form, invoice and medical report of the correct document type are required. Request missing or incomplete evidence before deciding the claim."
+      },
+      "medical": {
+        "id": "POL-DEMO:v1:MED-01",
+        "title": "Medical necessity",
+        "text": "Treatment must be appropriate for the diagnosis under the demo medical rules. Unknown appropriateness requires additional medical evidence; inappropriate treatment is excluded."
+      },
+      "exclusion": {
+        "id": "POL-DEMO:v1:EXC-COSMETIC",
+        "title": "Cosmetic exclusion",
+        "text": "Procedure cosmetic_surgery is excluded from cover. This demo policy has no accident exception."
+      },
+      "limit": {
+        "id": "POL-DEMO:v1:LIM-01",
+        "title": "Annual insurer payout limit",
+        "text": "Annual outpatient insurer payout limit is VND 5000000. Previously used insurer payout in 2026 is VND 1000000. Cap payout at the remaining limit; partially approve when remaining limit is positive; reject if exhausted. Assessment does not reserve or pay funds."
+      },
+      "copay": {
+        "id": "POL-DEMO:v1:COP-01",
+        "title": "Member copay",
+        "text": "Member copay is 20% of eligible submitted amount, rounded half up to whole VND, before capping insurer payout. Member also bears excess above remaining limit. No deductible applies."
+      },
+      "waiting": {
+        "id": "POL-DEMO:v1:WAIT-01",
+        "title": "Waiting period",
+        "text": "Treatment may start 30 calendar days after 2026-01-01, including day 30. Earlier treatment is excluded."
+      }
+    }
+  },
+  "documents": [
+    {
+      "id": "more_info_003-claim_form",
+      "owner_ref": "more_info_003",
+      "declared_type": "claim_form",
+      "actual_type": "claim_form",
+      "complete": true,
+      "issues": [],
+      "revision": 1
+    },
+    {
+      "id": "more_info_003-invoice",
+      "owner_ref": "more_info_003",
+      "declared_type": "invoice",
+      "actual_type": "invoice",
+      "complete": true,
+      "issues": [],
+      "revision": 1
+    }
+  ],
+  "available_documents": [
+    {
+      "id": "more_info_003-medical_report",
+      "owner_ref": "more_info_003",
+      "declared_type": "medical_report",
+      "actual_type": "medical_report",
+      "complete": true,
+      "issues": [],
+      "revision": 1
+    }
+  ],
+  "expected": {
+    "outcome": "REQUEST_MORE_INFO"
+  }
+}

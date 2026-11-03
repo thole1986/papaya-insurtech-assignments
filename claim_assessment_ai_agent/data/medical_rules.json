@@ -1,0 +1,19 @@
+[
+  {
+    "id": "DEMO-MED:v1:PHARYNGITIS",
+    "diagnosis": "pharyngitis",
+    "allowed_procedures": [
+      "consultation",
+      "throat_test"
+    ],
+    "explanation": "Synthetic interview rule: consultation and throat test match pharyngitis."
+  },
+  {
+    "id": "DEMO-MED:v1:COSMETIC",
+    "diagnosis": "cosmetic_non_accident",
+    "allowed_procedures": [
+      "cosmetic_surgery"
+    ],
+    "explanation": "Synthetic rule; medical appropriateness does not establish coverage."
+  }
+]

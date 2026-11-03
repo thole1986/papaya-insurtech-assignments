@@ -1,0 +1,56 @@
+{
+  "created_at": "2026-11-02T08:57:45.888912+00:00",
+  "mode": "offline",
+  "prompt_version": "claim-assessor-v1",
+  "prompt_sha256": "3e4f1aa835d539e1c7d8ceb1c69a3098adbd9cc34f9ede7ddc998868bb80a371",
+  "lockfile_sha256": "a6c149c86d47950696b85176d267311adf2fe6b92a8c6fc2661e87020aa901f6",
+  "cases": [
+    {
+      "case_id": "approval_001",
+      "fixture_sha256": "becdf29587c606e6dd7c28e6154b357f9ad2b2d8f7ec32f11e3ef1cb991dcbd3",
+      "policy_version": "v1",
+      "passed": true,
+      "checks": {
+        "outcome": true,
+        "tool_sequence": true,
+        "all_documents": true,
+        "citations": true,
+        "covered_amount": true,
+        "copay": true,
+        "member_responsibility": true,
+        "remaining_limit_after": true
+      },
+      "model": "offline-deterministic-v1",
+      "assessment_id": "4cae3d1c-25b2-46ce-9fad-5cc39a8035cb"
+    },
+    {
+      "case_id": "more_info_003",
+      "fixture_sha256": "ef8327403de77f7db14db37216bde118398e2d8058697f4cfab1c5541cc74ea9",
+      "policy_version": "v1",
+      "passed": true,
+      "checks": {
+        "outcome": true,
+        "tool_sequence": true,
+        "all_documents": true,
+        "citations": true
+      },
+      "model": "offline-deterministic-v1",
+      "assessment_id": "4bd1d8ca-a3cc-49b4-baf4-7a7296c84591"
+    },
+    {
+      "case_id": "rejection_002",
+      "fixture_sha256": "1a9d6f24c3564983eac97c8abde5535191b2929d90e1a5ae4b922be2157e3206",
+      "policy_version": "v1",
+      "passed": true,
+      "checks": {
+        "outcome": true,
+        "tool_sequence": true,
+        "all_documents": true,
+        "citations": true
+      },
+      "model": "offline-deterministic-v1",
+      "assessment_id": "65890fd7-bfc4-4607-a6d1-57cdf36409aa"
+    }
+  ],
+  "passed": true
+}

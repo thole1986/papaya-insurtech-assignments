@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Papaya · Claim assessment</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="/">papaya<span> / assessment studio</span></a>
+    <div class="top-actions"><span id="mode" class="pill">Connecting</span><a href="/docs" target="_blank" rel="noopener">API docs ↗</a></div>
+  </header>
+  <main>
+    <section class="intro"><div class="eyebrow">CLAIM OPERATIONS · LOCAL MVP</div>
+      <h1>Evidence first.<br><span>Decisions you can review.</span></h1>
+      <p>Kiểm tra hồ sơ, đối chiếu điều khoản và tính quyền lợi trong một luồng có thể truy vết.</p>
+    </section>
+    <div id="notice" role="status" aria-live="polite"></div>
+    <div class="workspace">
+      <aside>
+        <section class="panel"><div class="section-head"><h2>01 / Hồ sơ</h2><button id="new-session" class="text-button">Session mới</button></div>
+          <p class="muted">Chọn bộ dữ liệu giả lập để bắt đầu.</p><div id="cases" class="case-list"></div>
+          <button id="create" class="primary wide" disabled>Tạo hồ sơ từ case</button>
+          <details><summary>Nhập claim JSON tùy chỉnh</summary>
+            <p class="muted">Policy demo: POL-DEMO. Claim mới chưa có tài liệu xác minh. Dùng case mẫu để demo bổ sung tài liệu tin cậy.</p>
+            <textarea id="custom-json" rows="11" aria-label="Custom claim JSON" spellcheck="false"></textarea>
+            <button id="custom-create" class="wide">Tạo claim tùy chỉnh</button>
+          </details>
+        </section>
+        <section class="panel"><h2>Claim snapshot</h2><div id="claim-summary" class="muted">Chưa có claim.</div>
+          <details><summary>Claim & document metadata</summary><pre id="claim-json">{}</pre></details>
+          <div class="section-head"><h3>Assessment history</h3><span id="revision" class="pill">—</span></div>
+          <select id="history" aria-label="Assessment version"><option value="">Chưa có assessment</option></select>
+          <button id="assess" class="primary wide" disabled>Chạy assessment</button>
+        </section>
+        <section class="panel"><h2>Bổ sung tài liệu</h2><p class="muted">Chọn tài liệu đã có trong registry giả lập. Mỗi lần bổ sung tạo claim revision mới.</p>
+          <select id="documents" aria-label="Available documents"><option value="">Không có tài liệu bổ sung</option></select>
+          <button id="attach" class="wide" disabled>Bổ sung & tạo revision</button>
+        </section>
+      </aside>
+      <section class="results">
+        <section class="panel report-header"><div><div class="eyebrow">02 / ASSESSMENT REPORT</div><h2 id="result-title">Sẵn sàng thẩm định</h2></div><span id="outcome" class="pill">WAITING</span></section>
+        <div id="empty" class="empty panel"><div class="empty-icon">◎</div><h2>Từ hồ sơ đến đề xuất có dẫn chứng</h2><p>Chọn case → tạo claim → chạy assessment.<br>Mọi tài liệu đã nộp đều được kiểm tra trước khi đối chiếu policy.</p></div>
+        <div id="report" hidden></div>
+        <section id="audit-panel" class="panel" hidden><div class="section-head"><h2>Tool execution trace</h2><a id="download" href="#" target="_blank" rel="noopener">Export Markdown ↗</a></div><p class="muted">Inputs, outputs và thời gian thực thi; không lưu private chain-of-thought.</p><div id="trace"></div></section>
+        <div class="bottom-grid">
+          <section class="panel"><div class="eyebrow">03 / CONVERSATION</div><h2>Hỏi về báo cáo</h2>
+            <div id="messages" class="messages" aria-live="polite"><p class="muted">Hoàn tất assessment để bắt đầu.</p></div>
+            <form id="chat-form"><label for="chat">Câu hỏi</label><textarea id="chat" rows="2" placeholder="Vì sao hồ sơ cần thêm thông tin?" required maxlength="4000"></textarea><button id="send" class="wide" disabled>Gửi câu hỏi</button></form>
+          </section>
+          <section class="panel"><div class="eyebrow">04 / HUMAN REVIEW</div><h2>Quyết định của assessor</h2><p class="muted">Review được lưu riêng; báo cáo gốc được giữ nguyên.</p>
+            <form id="review-form"><label for="decision">Quyết định</label><select id="decision"><option>APPROVE</option><option>REJECT</option><option>REQUEST_MORE_INFO</option></select>
+              <label for="reviewer">Assessor (tự khai trong demo)</label><input id="reviewer" required maxlength="100" placeholder="Tên người review">
+              <label for="review-reason">Lý do xác nhận / override</label><textarea id="review-reason" rows="2" required maxlength="2000"></textarea><button id="save-review" class="wide" disabled>Lưu review</button>
+            </form><div id="reviews"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+    <footer>Synthetic documents & medical rules · Không thực hiện chi trả · FastAPI + LangGraph</footer>
+  </main>
+</body>
+</html>
